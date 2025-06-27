@@ -1,0 +1,143 @@
+﻿<Window x:Class="ChatBotApplication.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SplashScreen"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Height="450" 
+        Width="800"
+        Loaded="Window_Loaded">
+
+    <Border BorderBrush="WhiteSmoke"
+            BorderThickness="3"
+            CornerRadius="20"
+            Background="Transparent">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" 
+                              Color="#800080"
+                              Opacity="0.8"
+                              BlurRadius="20"/>
+        </Border.Effect>
+
+        <Grid>
+
+            <!-- 🎥 Video Background -->
+            <MediaElement x:Name="SplashVideo"
+                          Source="images/abstract.mp4"
+                          LoadedBehavior="Play"
+                          UnloadedBehavior="Stop"
+                          Stretch="UniformToFill"
+                          IsMuted="True"
+                          MediaEnded="SplashVideo_MediaEnded"
+                          Panel.ZIndex="0" />
+
+            <!-- Overlay -->
+            <Rectangle Fill="#e504f6"
+                       Opacity="0.6"
+                       Panel.ZIndex="1" />
+
+            <!-- Text Content with Glow Card -->
+            <Grid Panel.ZIndex="2"
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Center"
+                  Margin="0,32,0,0">
+                <Border Background="#060107"
+                        CornerRadius="15"
+                        Padding="20"
+                        Margin="10">
+                    <Border.Effect>
+                        <DropShadowEffect Color="#012ee5"
+                                          BlurRadius="30"
+                                          ShadowDepth="0"
+                                          Opacity="0.6" />
+                    </Border.Effect>
+
+                    <StackPanel TextBlock.TextAlignment="Center">
+                        <!-- Title -->
+                        <TextBlock x:Name="TitleText"
+                                   Text="Beyond Chatting"
+                                   FontSize="48"
+                                   FontWeight="ExtraBold"
+                                   Foreground="White"
+                                   FontFamily="Forte"
+                                   Opacity="0"
+                                   RenderTransformOrigin="0.5,0.5"
+                                   Width="654"
+                                   Margin="0,0,0,15">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="20" />
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <!-- Subtitle -->
+                        <TextBlock x:Name="SubtitleText"
+                                   Text=" Intelligent"
+                                   FontSize="36"
+                                   FontWeight="SemiBold"
+                                   Foreground="White"
+                                   FontFamily="Forte"
+                                   Opacity="0"
+                                   RenderTransformOrigin="0.5,0.5"
+                                   Margin="0,0,0,10">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="20" />
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <!-- Footer -->
+                        <TextBlock x:Name="FooterText"
+                                   Text="Secure and Refined"
+                                   FontSize="26"
+                                   FontWeight="Bold"
+                                   Foreground="DeepPink"
+                                   FontFamily="Mongolian Baiti"
+                                   Opacity="0"
+                                   RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="20" />
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- Get Started Button -->
+            <Button Content="Get Started"
+                    Width="150"
+                    Height="45"
+                    FontSize="16"
+                    FontWeight="SemiBold"
+                    Foreground="White"
+                    Background="DeepPink"
+                    BorderBrush="DeepPink"
+                    BorderThickness="1"
+                    Cursor="Hand"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,0,40"
+                    Click="GetStarted_Click"
+                    Panel.ZIndex="3">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#4B0082"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </Grid>
+    </Border>
+</Window>

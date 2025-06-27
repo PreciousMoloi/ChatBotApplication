@@ -1,0 +1,136 @@
+﻿<Window x:Class="ChatBotApplication.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SplashScreen"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Height="450" 
+        Width="800"
+        Loaded="Window_Loaded">
+
+    <Border BorderBrush="DimGray"
+            BorderThickness="10"
+            CornerRadius="20"
+            Background="Transparent">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" 
+                              Color="#800080"
+                              Opacity="0.8"
+                              BlurRadius="20"/>
+        </Border.Effect>
+
+        <Grid>
+
+            <!-- 🖼️ Static Image Background -->
+            <Image Source="images/flat-mountains (4).png" 
+                   Stretch="UniformToFill"
+                   Panel.ZIndex="0"/>
+
+            <!-- Overlay -->
+            <Rectangle Fill="#33000000"
+                       Opacity="0.6"
+                       Panel.ZIndex="1" />
+
+            <!-- Text Content with Glow Card -->
+            <Grid Panel.ZIndex="2"
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Center"
+                  Margin="0,32,0,0">
+                <Border Background="#110102"
+                        CornerRadius="15"
+                        Opacity="5"
+                        Padding="20"
+                        Margin="10">
+                    <Border.Effect>
+                        <DropShadowEffect Color="DarkRed"
+                                          BlurRadius="30"
+                                          ShadowDepth="0"
+                                          Opacity="0.6" />
+                    </Border.Effect>
+
+                    <StackPanel TextBlock.TextAlignment="Center">
+                        <TextBlock x:Name="TitleText"
+                                   Text="Enter the Future:"
+                                   FontSize="48"
+                                   FontWeight="ExtraBold"
+                                   Foreground="WhiteSmoke"
+                                   FontFamily="Cooper Black"
+                                   Opacity="0"
+                                   RenderTransformOrigin="0.5,0.5"
+                                   Width="654"
+                                   Margin="0,0,0,15">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="20" />
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock x:Name="SubtitleText"
+                                   Text="AI Conversations"
+                                   FontSize="36"
+                                   FontWeight="SemiBold"
+                                   Foreground="Orange"
+                                   FontFamily="Cooper Black"
+                                   Opacity="0"
+                                   RenderTransformOrigin="0.5,0.5"
+                                   Margin="0,0,0,10">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="20" />
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                        <TextBlock x:Name="FooterText"
+                                   Text="Perfected"
+                                   FontSize="26"
+                                   FontWeight="Bold"
+                                   Foreground="WhiteSmoke"
+                                   FontFamily="Magneto"
+                                   Opacity="0"
+                                   RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="20" />
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- Get Started Button -->
+            <Button Content="Get Started"
+                    Width="150"
+                    Height="45"
+                    FontSize="16"
+                    FontWeight="SemiBold"
+                    Foreground="White"
+                    Background="DarkOrange"
+                    BorderBrush="DarkOrange"
+                    BorderThickness="1"
+                    Cursor="Hand"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,0,40"
+                    Click="GetStarted_Click"
+                    Panel.ZIndex="3">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#4B0082"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </Grid>
+    </Border>
+</Window>
